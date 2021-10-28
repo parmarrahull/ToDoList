@@ -8,38 +8,37 @@ const ToDoList = () => {
     const [newitem, setNewItem] = useState([]);
 
     const itemEvent = (event) => {
-        setItem(event.targer.value);
+        setItem(event.target.value);
     };
 
     const listOfItems = () => {
         setNewItem((prevValue) => {
-            return[...prevValue, item];
+            return [...prevValue, item];
         });
         setItem(" ");
     };
     return (
-        <div>          
+        <div>
             <div className='main_div'>
                 <div className='center_div'>
                     <br />
                     <h1> ToDoList</h1>
                     <br />
-                    <input type="text"value={item} placeholder='Add an items' onChange={itemEvent} />
+                    <input type="text" value={item} placeholder='Add an items' onChange={itemEvent} />
                     <Button className="newBtn" onClick={listOfItems}>
                         <AddIcon />
                     </Button>
                     <br />
                     <ol>
                         {newitem.map((val, index) => {
-                            return <ListCom key={index} text={val}  />
+                            return <ListCom key={index} text={val} />
                         })}
                     </ol>
                     <br />
                 </div>
-            </div>    
+            </div>
         </div>
     )
 }
 
 export default ToDoList;
-        
